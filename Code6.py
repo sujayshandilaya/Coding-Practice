@@ -1,6 +1,5 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        #eturn(strs[0][0])
         length= len(strs)
         flag=0
         prefix=''
@@ -12,7 +11,7 @@ class Solution:
                 if(alpha==strs[j][i]):
                     pass
                 else :
-                    print("inside else")
+                    
                     return(prefix)
                     break
             i+=1
