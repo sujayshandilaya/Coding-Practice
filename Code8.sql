@@ -14,7 +14,7 @@ select
 dense_rank() over(
 order by case when id%2 = 1 then id+1 else id-1 end) as id,
 student
-from Seat s
+from Seat s;
 
 --Note: Order by clause can be manipulated using case statements.
 --https://www.tech-recipes.com/rx/69861/how-to-use-case-statement-in-order-by-clause/ 
