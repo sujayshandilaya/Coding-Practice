@@ -37,9 +37,7 @@ class Solution:
                   '8':['t','u','v'],
                   '9':['w','x','y','z']
                  }
-        
-        if digits=="":
-            return([])
+           
         
         op = [''] if digits else []
         
