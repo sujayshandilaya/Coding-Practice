@@ -44,3 +44,6 @@ Select extract(hour from order_time), count(pizza_id) from customer_orders group
 
 10.
 Select dayofweek((order_time)), count(order_id) from customer_orders group by 1 order by 1
+
+
+
