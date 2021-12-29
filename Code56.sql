@@ -1,0 +1,2 @@
+select distinct at1.user_id from amazon_transactions at1 inner join 
+amazon_transactions at2 on at1.user_id=at2.user_id and at1.id<>at2.id and at1.created_at <= at2.created_at and at2.created_at < at1.created_at + interval '7' day  order by 1 ;
