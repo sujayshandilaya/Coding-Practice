@@ -1,0 +1,1 @@
+select e.location, avg(s.popularity) from facebook_employees e inner join facebook_hack_survey s on e.id=s.employee_id group by 1;
