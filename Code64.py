@@ -7,6 +7,7 @@ class Solution:
             email_name=local_name[0].replace('.','')
             return(email_name+'@'+name[1])
             
+            
         
         for i in range(len(emails)):
             email=emailGenerator(emails[i])

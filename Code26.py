@@ -38,7 +38,34 @@ class Solution:
             letters[s[i]]=i
         return(max_len)
             
-            
+####################
+# Same as 2nd
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        max_len=0
+        length=start=i=0
+        new_dict={}
+        n=len(s)
+        if n==0 or n==1:
+            return n
+
+        while i < len(s):
+            if s[i] in new_dict and start<=new_dict[s[i]]:
+                start=new_dict[s[i]]+1
+                length=i-start+1
+                print(start,s[i])
+            else:
+                length+=1
+                max_len=max(length,max_len)
+
+            new_dict[s[i]]=i
+            i+=1  
+        
+        return(max_len)
+
+# start<= new_dict[s[i]], ensures that the values before the start are not considered for comparison.  
+#which condition to mention in if and else is important, especially if  
+ 
 tmmzuxt
 0123456
         

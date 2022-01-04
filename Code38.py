@@ -10,7 +10,7 @@ class Solution:
             small=min(small,nums[mid])
             
             if(nums[left]<=nums[mid]):
-                if small <= nums[left]:
+                if 1small <= nums[left]:
                     left=mid+1
                 else:
                     small = nums[left]

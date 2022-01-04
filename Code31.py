@@ -11,7 +11,6 @@ class Solution:
         i=0
         
         for i in range(new_len):
-        #while j<m and k<n:
             if j==m:
                 list1[i]=nums2[k]
                 k+=1
@@ -24,14 +23,13 @@ class Solution:
             else:
                 list1[i]=nums2[k]
                 k+=1
-            
-            
-            
-        print(list1)
         
         return (list1[int(new_len/2)] + list1[int(new_len/2) -1])/2 if new_len%2==0 else list1[int(new_len/2)]
         
-        #return(2.0)
+#This is O(m+n) time complexity.
+
+# How to convert it to O(log(m+n)) time complexity?
+#Ans - USing binary search
                 
                 
                 
