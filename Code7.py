@@ -21,7 +21,19 @@ class Solution:
             return(True)
         else:
             return(False)
-            
+
+#
+
+class Solution(object):
+    def isValid(self, s):
+        d = {'N':0,'(':')', '{':'}','[':']'}
+        stack = ['N']
+        for i in s:
+            if i in d:  # 1
+                stack.append(i)
+            elif d[stack.pop()] != i:  # 2
+                return False
+        return len(stack) == 1 # 3
             
             
             

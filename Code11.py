@@ -10,3 +10,14 @@ class Solution:
                 i+=1
         return(len(nums))
  
+ ###########
+ class Solution:
+    def removeDuplicates(self, arr: List[int]) -> int:
+        n=len(arr)-1
+        x=1
+        for i in range(n):
+            if arr[i]!=arr[i+1]:
+                arr[x]=arr[i+1]
+                x+=1
+        
+        return x

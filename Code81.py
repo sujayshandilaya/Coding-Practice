@@ -24,7 +24,7 @@ class Solution:
 
 ################
 
-2*(a+b+c) - (a+a+b+b+c) -> this will return c. element which occurs only once
+#2*(a+b+c) - (a+a+b+b+c) -> this will return c. element which occurs only once
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:

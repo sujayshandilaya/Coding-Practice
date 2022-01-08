@@ -11,4 +11,15 @@ class Solution(object):
             else:
                 x-=1
         return(x)
+
+########################
+class Solution:
+    def finalValueAfterOperations(self, operations: List[str]) -> int:
+        return( sum(1 if '+' in i else -1 for i in operations))
         
+###############
+
+def finalValueAfterOperations(self, operations: List[str]) -> int:
+        op_dict = {"--X" : -1, "X--" : -1,
+                 "++X" : 1, "X++" : 1}
+        return sum(op_dict[op] for op in operations)

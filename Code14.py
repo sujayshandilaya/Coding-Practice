@@ -18,8 +18,6 @@ class Solution:
         def rec_binary(arr, l,r,target) -> int:
                 mid = l+int((r-l)/2)
                 if (r >= l):
-                
-                #print(mid)
                     if (arr[mid]==target):
                         return(mid)
                 
