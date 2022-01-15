@@ -3,7 +3,7 @@ with tbl1 as
 
 Select date, non_paying, paying from
 (
-Select date, sum(case when paying_customer='no' then 1 else 0 end) as non_paying, sum(case when paying_customer='yes' then 1 else 0 end) as paying from ms_download_facts d inner join tbl1 t on d.user_id=t.user_id group by 1) t1
+Select date, sum(case when paying_customer='no' then downloads else 0 end) as non_paying, sum(case when paying_customer='yes' then downloads else 0 end) as paying from ms_download_facts d inner join tbl1 t on d.user_id=t.user_id group by 1) t1
 where non_paying > paying
 order by date 
 
