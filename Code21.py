@@ -11,3 +11,13 @@ class Solution:
         for key, value in count_dict.items():
             if value == n:
                 return key
+                
+###########
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count_dict={}
+        for i in nums:
+            count_dict[i]= count_dict.get(i,0)+1
+            if count_dict[i] >int(len(nums)/2):
+                return i
