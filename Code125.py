@@ -1,6 +1,8 @@
 class Solution:
-    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
-        target=[]
-        for i in range(len(nums)):
-            target.insert(index[i],nums[i])
-        return target
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
+        res=[]
+        for i in range(0,len(nums),2):
+            temp=[nums[i+1]]*nums[i]
+            res+=temp
+        
+        return res
