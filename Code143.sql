@@ -1,0 +1,1 @@
+Select  employee_title, sex, avg(bonus+salary) from sf_employee e right join (Select worker_ref_id, sum(bonus) as bonus from sf_bonus group by 1) b on e.id = b.worker_ref_id  group by 2,1

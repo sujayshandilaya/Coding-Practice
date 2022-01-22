@@ -19,11 +19,8 @@ class Solution:
     def removeOuterParentheses(self, S: str) -> str:
         res = ''
         stack = []
-        
         bucket=''
-        
         for s in S:
-            
             if s =='(':
                 stack.append(s)
             else:
@@ -32,5 +29,4 @@ class Solution:
             if len(stack)==0:
                 res+=(bucket[1:-1])
                 bucket=''
-            
         return res

@@ -8,3 +8,18 @@
 7.What is the successful delivery percentage for each runner?
 */
 
+1.
+SELECT week(registration_date, week('2021-01-01')+1)+1 as week_no, count(runner_id) from runners group by 1;
+
+2.
+
+SELECT runner_id, avg(TIMESTAMPDIFF(MINUTE, order_time, pickup_time)) from customer_orders c 
+inner join runner_orders r 
+on r.order_id=c.order_id 
+where pickup_time is not null
+group by 1 order by 1
+
+3.
+
+4.
+

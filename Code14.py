@@ -1,4 +1,4 @@
-class Solution:
+ class Solution:
 # Brute Force O(n)
     def searchInsert(self, nums: List[int], target: int) -> int:
         i=0
