@@ -46,5 +46,5 @@ class Solution:
         if c1==0:
             print("insied c1")
             for i in range(0,len(matrix)):
-                matrix[i][0]==0
+                matrix[i][0]=0
   
