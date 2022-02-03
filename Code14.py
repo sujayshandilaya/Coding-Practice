@@ -11,7 +11,7 @@
             return(i)
        
 # Binary Search O(log n)
-
+#Recursive Approach
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         
@@ -33,11 +33,31 @@ class Solution:
         index = rec_binary(nums,0,len(nums)-1,target)
         print(index)
         return index
+
+#Iterative Approach
+
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
         
+        left=0
+        right=len(nums)-1
+        while left<=right:
+            if target<nums[left]: return left
+            if target > nums[right]: return (right+1)
+            mid=(left+right)//2
+            if nums[mid]==target:
+                return mid
+            elif nums[mid]>target:
+                right=mid-1
+            else:
+                left=mid+1
+                
+
+
+
  #new method O(log(n))
  
  class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         
         return bisect.bisect_left(nums, target)
-       
