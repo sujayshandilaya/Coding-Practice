@@ -38,7 +38,6 @@ class Solution:
 
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        
         left=0
         right=len(nums)-1
         while left<=right:
@@ -57,7 +56,6 @@ class Solution:
 
  #new method O(log(n))
  
- class Solution:
+class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        
         return bisect.bisect_left(nums, target)

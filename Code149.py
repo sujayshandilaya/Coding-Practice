@@ -8,7 +8,7 @@ class Solution:
             elif s[r]=='b' : b+=1
             else: c+=1   
             while a>0 and b>0 and c>0:
-                cnt+= (n-r)
+                cnt+= (n-r)  #So as to count all possible substrings, after this character.
                 if s[l]=='a': a-=1
                 elif s[l]=='b' : b-=1
                 else: c-=1
