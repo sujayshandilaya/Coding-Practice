@@ -8,6 +8,7 @@ class Solution:
             return s[l+1:r]
         
         res=""
+        
         for i in range(len(s)):
             temp=helper(s,i,i+1)
             if len(temp)>len(res):
@@ -16,3 +17,11 @@ class Solution:
             if len(temp)>len(res):
                 res=temp
         return res
+"""
+        res=""
+        for i in range(len(s)):
+            res= max(helper(s,i,i), helper(s,i,i+1), res, key=len)
+        return res
+""" # This for loop can be replaced by this function. 
+#######################
+

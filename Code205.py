@@ -3,7 +3,6 @@ class Solution:
         boxTypes= sorted(boxTypes, key = lambda x: x[1], reverse=True)
         occupied=op=0
         for box in boxTypes:
-            #occupied+=box[0]
             if (occupied+box[0]) > truckSize:
                 op+=((truckSize-occupied)*box[1])
                 break

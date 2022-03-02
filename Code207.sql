@@ -1,28 +1,105 @@
-# Write your MySQL query statement below
+WITH tbl
+     AS (SELECT 1 AS num
+         UNION ALL
+         SELECT 2 AS num
+         UNION ALL
+         SELECT 3 AS num
+         UNION ALL
+         SELECT 4 AS num
+         UNION ALL
+         SELECT 5 AS num
+         UNION ALL
+         SELECT 6 AS num
+         UNION ALL
+         SELECT 7 AS num
+         UNION ALL
+         SELECT 8 AS num
+         UNION ALL
+         SELECT 9 AS num
+         UNION ALL
+         SELECT 10 AS num
+         UNION ALL
+         SELECT 11 AS num
+         UNION ALL
+         SELECT 12 AS num
+         UNION ALL
+         SELECT 13 AS num
+         UNION ALL
+         SELECT 14 AS num
+         UNION ALL
+         SELECT 15 AS num
+         UNION ALL
+         SELECT 16 AS num
+         UNION ALL
+         SELECT 17 AS num
+         UNION ALL
+         SELECT 18 AS num
+         UNION ALL
+         SELECT 19 AS num
+         UNION ALL
+         SELECT 20 AS num),
+     tbl1
+     AS (SELECT T.task_id,
+                c.num AS subtask_id
+         FROM   tasks T,
+                tbl c
+         WHERE  c.num <= T.subtasks_count)
+SELECT T.task_id,
+       T.subtask_id
+FROM   tbl1 T
+       LEFT JOIN executed E
+              ON E.task_id = T.task_id
+                 AND E.subtask_id = T.subtask_id
+WHERE  E.subtask_id IS NULL
+ORDER  BY 1,
+          2 
 
-with tbl as (SELECT 1 as num union all
-SELECT 2 as num union all
-SELECT 3 as num union all
-SELECT 4 as num union all
-SELECT 5 as num union all
-SELECT 6 as num union all
-SELECT 7 as num union all
-SELECT 8 as num union all
-SELECT 9 as num union all
-SELECT 10 as num  union all
-SELECT 11 as num union all
-SELECT 12 as num union all
-SELECT 13 as num union all
-SELECT 14 as num union all
-SELECT 15 as num union all
-SELECT 16 as num union all
-SELECT 17 as num union all
-SELECT 18 as num union all
-SELECT 19 as num union all
-SELECT 20 as num
-),
+################################
 
- tbl1 as ( Select T.task_id, c.num  as subtask_id from Tasks T,tbl c where c.num<=T.subtasks_count)
+WITH recursive tbl AS
+(
+       SELECT 1 AS num
+       UNION ALL
+       SELECT num+1
+       FROM   tbl
+       WHERE  num < 20 ), tbl1 AS
+(
+       SELECT t.task_id,
+              c.num AS subtask_id
+       FROM   tasks t,
+              tbl c
+       WHERE  c.num<=t.subtasks_count)
+SELECT    t.task_id,
+          t.subtask_id
+FROM      tbl1 t
+LEFT JOIN executed e
+ON        e.task_id=t.task_id
+AND       e.subtask_id=t.subtask_id
+WHERE     e.subtask_id IS NULL
 
 
-Select T.task_id, T.subtask_id from tbl1 T left join Executed E on E.task_id=T.task_id and E.subtask_id=T.subtask_id where E.subtask_id is null order by 1,2
+###################################
+
+
+WITH recursive tbl AS
+(
+         SELECT   task_id,
+                  1 AS num
+         FROM     tasks
+         GROUP BY 1
+         UNION ALL
+         SELECT task_id ,
+                num+1
+         FROM   tbl t1
+         WHERE  num <
+                (
+                       SELECT subtasks_count
+                       FROM   tasks t
+                       WHERE  t.task_id=t1.task_id) )
+SELECT    t.task_id,
+          t.num AS subtask_id
+FROM      tbl t
+LEFT JOIN executed e
+ON        e.task_id=t.task_id
+AND       e.subtask_id=t.num
+WHERE     e.subtask_id IS NULL
