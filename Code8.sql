@@ -2,6 +2,8 @@
 select id, case when id%2=1  then lead(student ,1,student) OVER(ORDER BY id)
 else lag(student ,1 ) OVER(ORDER BY id) end as student from Seat;
 
+--in lead and lag statement, 3rd paramater acts as a coalesce value
+
 --Approach 2:
 -- Write your MySQL query statement below
 Select * from
