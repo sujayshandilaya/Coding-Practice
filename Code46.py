@@ -24,3 +24,22 @@ class Solution:
                     dict_triplets[-(nums[i]+nums[j])]=nums[j]
   
         return(list(set(tuple(sorted(sub)) for sub in triplets)))
+
+#################################
+07/22/2022:
+    
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        i=j=k=0
+        op=set()
+        n=len(nums)
+        for i in range(n):
+            num_dict={}
+            for j in range(i+1,n):
+                if nums[j] in num_dict:
+                    op.add(tuple(sorted([nums[i],nums[j],num_dict[nums[j]]])))
+                    
+                else:
+                    num_dict[-(nums[i]+nums[j])]=nums[j]
+        return op
