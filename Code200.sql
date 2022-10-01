@@ -10,3 +10,13 @@ SELECT
 player_id, event_date,
 sum(games_played) over( partition by player_id order by event_date rows between unbounded preceding and current row) as games_played_so_far from 
 Activity
+
+###################
+
+select 
+    player_id,
+    event_date,
+    sum(games_played) over
+    (partition by player_id order by event_date asc) AS games_played_so_far
+from 
+    activity
