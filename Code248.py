@@ -6,7 +6,7 @@ class Solution(object):
         
         return([v for k, v in sorted(height_dict.items(), key=lambda item: item[0], reverse=True)])
 		
-		
+########################		
 class Solution(object):
     def sortPeople(self, names, heights):
         height_dict={}
