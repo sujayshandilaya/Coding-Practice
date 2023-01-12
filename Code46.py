@@ -71,3 +71,25 @@ class Solution:
                 else:
                     num_dict[-(nums[i]+nums[j])]=nums[j]
         return op
+    
+    #########################
+    
+    class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        n=len(nums)
+        op=set()
+        op_final=[]
+        for i in range(n):
+            num_dict={}
+            for j in range(i+1,n):
+                if nums[j] in num_dict:
+                    op.add(tuple(sorted([nums[i],nums[j],(0-nums[j]-nums[i])])))
+                 
+                else:
+                    num_dict[(0-nums[j]-nums[i])]= nums[j]
+        #print(op)
+        
+        for li in op:
+            op_final.append(list(li))
+
+        return op_final
